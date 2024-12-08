@@ -14,15 +14,15 @@
 ### 2. Senzor DHT11
 
 - Pinul `+` → 5V pe Arduino.
-- Pinul `-` → GND pe Arduino.
 - Pinul `OUT` → Pin digital D2 pe Arduino.
+- Pinul `-` → GND pe Arduino.
 
 ### 3. Senzor HC-SR04
 
-- Pinul **VCC** → 5V pe Arduino.
 - Pinul **GND** → GND pe Arduino.
-- Pinul **Trig** → Pin digital D3 pe Arduino.
 - Pinul **Echo** → Pin digital D4 pe Arduino.
+- Pinul **Trig** → Pin digital D3 pe Arduino.
+- Pinul **VCC** → 5V pe Arduino.
 
 ---
 

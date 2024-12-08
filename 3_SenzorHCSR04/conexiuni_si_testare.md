@@ -3,10 +3,10 @@
 ## Conexiuni hardware
 
 1. Senzor HC-SR04:
-   - Pinul **VCC** → 5V pe Arduino.
    - Pinul **GND** → GND pe Arduino.
-   - Pinul **Trig** → Pin digital D3 pe Arduino.
    - Pinul **Echo** → Pin digital D4 pe Arduino.
+   - Pinul **Trig** → Pin digital D3 pe Arduino.
+   - Pinul **VCC** → 5V pe Arduino.
 
 ---
 

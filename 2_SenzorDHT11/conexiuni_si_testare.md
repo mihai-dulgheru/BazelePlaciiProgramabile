@@ -4,8 +4,8 @@
 
 1. DHT11 (<https://store.arduino.cc/en-ro/products/grove-temperature-humidity-sensor-pro>):
    - Pinul `+` → 5V pe Arduino.
-   - Pinul `-` → GND pe Arduino.
    - Pinul `OUT` → Pin digital D2 pe Arduino.
+   - Pinul `-` → GND pe Arduino.
 
 ---
 
