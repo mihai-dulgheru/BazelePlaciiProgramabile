@@ -1,6 +1,6 @@
 # Proiect Monitorizare Senzori cu Arduino
 
-Acest proiect demonstrează utilizarea combinată a mai multor senzori și LED-uri cu o placă Arduino, oferind funcționalități precum monitorizarea temperaturii și umidității, măsurarea distanței și semnalizare vizuală prin LED-uri.
+Acest proiect demonstrează utilizarea combinată a mai multor senzori și LED-uri cu placa NEXTLAB (compatibilă Arduino), oferind funcționalități precum monitorizarea temperaturii și umidității, măsurarea distanței și semnalizare vizuală prin LED-uri.
 
 ---
 
@@ -34,8 +34,20 @@ MiniCore este o platformă pentru suport extins al microcontrollerelor ATmega328
 
 1. Mergi la **Tools > Board** și selectează: **MiniCore > ATmega328**
 2. Mergi la **Tools > Variant** și selectează: **328PB**
-3. Conectează placa Arduino.
+3. Conectează placa la calculator cu cablul USB.
 4. Mergi la **Tools > Port** și selectează: **COM3** (sau alt port disponibil în funcție de sistemul tău).
+
+Dacă portul plăcii nu apare în listă, instalează driverul **CH340** (linkul este în lecția „Bazele plăcii programabile”, pasul 6, de pe labs.ase.ro), apoi reconectează placa.
+
+---
+
+### 4. Instalează biblioteca DHT
+
+Codul din pașii 2 și 4 folosește biblioteca pentru senzorul DHT11. Fără ea, compilarea se oprește cu eroarea `DHT.h: No such file or directory`.
+
+1. Mergi la **Tools > Manage Libraries...**.
+2. Caută **DHT sensor library** (autor: Adafruit) și apasă pe **Install**.
+3. Când Arduino IDE propune și dependențele (**Adafruit Unified Sensor**), alege **Install All**.
 
 ---
 
@@ -47,17 +59,31 @@ Proiectul este împărțit în pași, fiecare având un folder dedicat:
 - **2_SenzorDHT11:** Citirea temperaturii și umidității.
 - **3_SenzorHCSR04:** Măsurarea distanței.
 - **4_LEDSiSenzori:** Integrarea tuturor funcționalităților.
+- **5_SenzorLumina (opțional):** Măsurarea luminii cu fotodioda din kit și aprinderea LED-ului pe întuneric.
+
+Fiecare componentă folosește alt pin, deci **nu demonta circuitul între pași**: la fiecare pas adaugi componente noi, iar la pasul 4 doar încarci codul.
+
+| Componentă            | Pin pe placă |
+| --------------------- | ------------ |
+| LED roșu              | D5           |
+| LED albastru          | D6           |
+| DHT11 (`OUT`)         | D2           |
+| HC-SR04 (Trig / Echo) | D3 / D4      |
+| Fotodiodă             | A0           |
 
 ---
 
 ## Cerințe hardware
 
-- Placă Arduino (UNO, Nano etc.)
-- Senzor DHT11
+Toate componentele fac parte din kitul [NEXTLAB ENTRY I](https://shop.nextlab.tech/en/cumpara/kit-de-robotica-entry-i-657):
+
+- Placa NEXTLAB.TECH A1 (ATmega328PB, compatibilă Arduino UNO) și cablul USB
+- Senzor DHT11 (modul cu 3 pini: `+`, `OUT`, `-`)
 - Senzor HC-SR04
-- LED-uri (roșu și albastru)
-- Rezistențe
-- Breadboard și cabluri de conexiune
+- 2 LED-uri (în exemple: roșu și albastru)
+- 2 dintre cele 5 rezistoare din kit, câte unul pentru fiecare LED
+- Fotodiodă (pentru pasul 5)
+- Breadboard și fire de legătură
 
 ---
 
