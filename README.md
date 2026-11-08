@@ -2,9 +2,14 @@
 
 Acest proiect demonstrează utilizarea combinată a mai multor senzori și LED-uri cu placa NEXTLAB (compatibilă Arduino), oferind funcționalități precum monitorizarea temperaturii și umidității, măsurarea distanței și semnalizare vizuală prin LED-uri.
 
+## Materiale
+
+- Prezentarea lecțiilor: [Bazele plăcii programabile.pptx](Bazele%20pl%C4%83cii%20programabile.pptx) (și în format [PDF](Bazele%20pl%C4%83cii%20programabile.pdf))
+- Videoclip cu aplicația finală de la pasul 4: [Demo aplicație - Monitorizare senzori și control LED-uri.mp4](Demo%20aplica%C8%9Bie%20-%20Monitorizare%20senzori%20%C8%99i%20control%20LED-uri.mp4)
+
 ---
 
-## Instalare și configurare mediul de dezvoltare Arduino IDE
+## Instalarea și configurarea mediului de dezvoltare Arduino IDE
 
 ### 1. Descarcă și instalează Arduino IDE
 
@@ -63,12 +68,12 @@ Proiectul este împărțit în pași, fiecare având un folder dedicat:
 
 Fiecare componentă folosește alt pin, deci **nu demonta circuitul între pași**: la fiecare pas adaugi componente noi, iar la pasul 4 doar încarci codul.
 
-| Componentă            | Pin pe placă |
-| --------------------- | ------------ |
-| LED roșu              | D5           |
-| LED albastru          | D6           |
-| DHT11 (`OUT`)         | D2           |
-| HC-SR04 (Trig / Echo) | D3 / D4      |
+| Componentă            | Pin pe placă       |
+| --------------------- | ------------------ |
+| LED roșu              | D5                 |
+| LED albastru          | D6                 |
+| DHT11 (`OUT`)         | D2                 |
+| HC-SR04 (Trig / Echo) | D3 / D4            |
 | Fotodiodă             | A0 (prin rezistor) |
 
 ---

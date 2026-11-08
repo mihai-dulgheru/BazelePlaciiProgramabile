@@ -45,6 +45,6 @@ Codul folosește biblioteca **DHT sensor library** (Adafruit); dacă nu ai insta
 3. Încarcă codul pe placă.
 4. Deschide **Serial Monitor** și setează viteza la **9600 baud**.
 5. Testează funcționalitatea:
-   - **LED-uri:** Aprinderea în funcție de temperatura citită.
+   - **LED-uri:** LED-ul roșu se aprinde la cel puțin 25 °C, iar cel albastru sub 25 °C. Temperatura se citește la 5 secunde; ca să schimbi culoarea, încălzește senzorul DHT11 ținându-l câteva secunde între degete.
    - **Senzor DHT11:** Citirile de temperatură și umiditate pe Serial Monitor.
    - **Senzor HC-SR04:** Detectarea distanței pe Serial Monitor și clipirea alternativă a LED-urilor când un obiect este la mai puțin de 10 cm.
