@@ -29,10 +29,10 @@ void setup() {
 void loop() {
   unsigned long timeMicros = measureDischargeMicros();
 
-  // Descărcare aproape instantanee: fotodioda conduce, deci e montată invers
+  // Descărcare aproape instantanee: fotodioda conduce (polarizare directă), deci e montată pe dos
   if (timeMicros < 100) {
     digitalWrite(LED_RED, LOW);
-    Serial.println("Fotodioda pare montată invers: schimbă picioarele între ele.");
+    Serial.println("Fotodioda e montată pe dos (picior lung spre A0): schimbă picioarele între ele.");
     delay(1000);
     return;
   }
