@@ -20,4 +20,4 @@ Codul folosește biblioteca **DHT sensor library** (Adafruit). Instaleaz-o înai
 1. Deschide fișierul `2_SenzorDHT11.ino` în Arduino IDE.
 2. Conectează placa Arduino la computer.
 3. Încarcă codul pe placă.
-4. Deschide Serial Monitor și observă valorile de temperatură și umiditate.
+4. Deschide **Serial Monitor**, setează viteza la **9600 baud** și observă valorile de temperatură și umiditate.

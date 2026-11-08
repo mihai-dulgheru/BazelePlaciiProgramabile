@@ -43,6 +43,11 @@ void setup() {
   pinMode(LED_BLUE, OUTPUT);
 
   setLEDs(false, false);  // Stinge LED-urile la pornire
+
+  // Prima citire imediat, ca LED-urile să nu stea stinse 5 secunde
+  delay(1000);  // DHT11 are nevoie de aproximativ o secundă după alimentare
+  readAndDisplayTemperatureHumidity();
+  lastTempHumidityRead = millis();
 }
 
 void loop() {
@@ -124,6 +129,7 @@ void stopAlternateLEDs() {
   if (hasAlternated) {
     setLEDs(false, false);  // Stinge LED-urile
     hasAlternated = false;  // Resetează starea alternării
+    lastTempHumidityRead = millis() - tempHumidityInterval;  // Citește imediat temperatura, ca LED-urile să se reaprindă
   }
 }
 

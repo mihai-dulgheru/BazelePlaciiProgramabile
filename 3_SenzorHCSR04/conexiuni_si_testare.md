@@ -19,5 +19,5 @@
 3. Încarcă codul pe placă.
 4. Deschide **Serial Monitor** și setează viteza la **9600 baud**.
 5. Testează:
-   - Apropiindu-te de senzor cu un obiect.
+   - Apropie un obiect de senzor.
    - Observă valorile distanței afișate pe monitorul serial în centimetri.
