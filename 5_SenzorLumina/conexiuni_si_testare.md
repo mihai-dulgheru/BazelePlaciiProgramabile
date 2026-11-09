@@ -1,6 +1,8 @@
 # Pasul 5 (opțional): Senzor de lumină cu fotodioda din kit
 
-Fotodioda din kit arată ca un LED transparent. Lumina o face să lase să treacă un curent foarte mic, prea mic pentru `analogRead`. De aceea, placa o încarcă precum un mic condensator și cronometrează cât durează până când lumina o descarcă: **cu cât e mai întuneric, cu atât timpul e mai mare**. Când timpul trece de prag, LED-ul roșu de la pasul 1 se aprinde, ca un iluminat automat.
+Fotodioda din kit arată ca un LED transparent. Lumina o face să lase să treacă un curent foarte mic, prea mic pentru `analogRead`. De aceea, placa o încarcă precum un mic condensator și cronometrează cât durează până când lumina o descarcă: **cu cât e mai întuneric, cu atât timpul e mai mare**. Când timpul trece de prag, LED-ul roșu se aprinde, ca un iluminat automat.
+
+Pasul 5 este un montaj separat de pașii 1-4: ai nevoie doar de fotodiodă, de LED-ul roșu și de două rezistoare.
 
 ## Conexiuni hardware
 
@@ -12,7 +14,9 @@ Fotodioda din kit arată ca un LED transparent. Lumina o face să lase să treac
 
    Rezistorul protejează placa dacă fotodioda este montată pe dos.
 
-2. LED roșu: rămâne montat de la pasul 1 (anodul → rezistor din kit → D5, catodul → GND).
+2. LED roșu:
+   - Anodul (piciorul mai lung) → Rezistor din kit → Pin digital D5 pe Arduino.
+   - Catodul (piciorul mai scurt) → GND pe Arduino.
 
 ---
 

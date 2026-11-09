@@ -8,7 +8,7 @@
    - Pinul **Trig** → Pin digital D3 pe Arduino.
    - Pinul **VCC** → 5V pe Arduino.
 
-**Dacă păstrezi montajul de la pasul 2:** placa are un singur pin 5V, pe care îl folosește deja DHT11. Leagă pinul 5V cu un fir la un rând liber de pe breadboard și alimentează din acel rând atât pinul `+` al DHT11, cât și pinul **VCC** al HC-SR04. Pentru GND poți folosi oricare dintre pinii GND ai plăcii.
+**Dacă păstrezi montajul de la pasul 2:** placa are doi pini 5V și trei pini GND. DHT11 folosește deja un pin 5V și un pin GND, așa că leagă HC-SR04 la celălalt pin 5V și la un pin GND liber.
 
 ---
 
@@ -21,3 +21,5 @@
 5. Testează:
    - Apropie un obiect de senzor.
    - Observă valorile distanței afișate pe monitorul serial în centimetri.
+
+Dacă apare mesajul „Eroare: Nu s-a primit semnal de la senzorul HC-SR04.”, verifică firele de la pinii **Trig** și **Echo** sau apropie un obiect (senzorul măsoară până la aproximativ 4 m).
