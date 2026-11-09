@@ -4,13 +4,13 @@
 
 1. LED roșu:
    - Anodul (piciorul mai lung) → Rezistor din kit → Pin digital D5 pe Arduino.
-   - Catodul (piciorul mai scurt) → GND pe Arduino.
+   - Catodul (piciorul mai scurt) → rândul comun de GND al LED-urilor (vezi mai jos).
 
 2. LED albastru:
    - Anodul (piciorul mai lung) → Rezistor din kit → Pin digital D6 pe Arduino.
-   - Catodul (piciorul mai scurt) → GND pe Arduino.
+   - Catodul (piciorul mai scurt) → rândul comun de GND al LED-urilor (vezi mai jos).
 
-Catozii ambelor LED-uri pot sta pe același rând de pe breadboard, legat cu un singur fir la un pin GND al plăcii.
+Pune catozii ambelor LED-uri pe același rând de pe breadboard și leagă rândul cu un singur fir la un pin GND al plăcii. Placa are doar trei pini GND, iar la pasul 4 ceilalți doi vor fi folosiți de senzori.
 
 ---
 

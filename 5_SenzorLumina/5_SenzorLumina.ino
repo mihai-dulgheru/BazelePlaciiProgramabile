@@ -1,5 +1,5 @@
 #define LIGHT_PIN A0  // A0 → rezistor → piciorul scurt al fotodiodei; piciorul lung → GND
-#define LED_RED 5     // LED-ul roșu de la pasul 1 (iluminat automat)
+#define LED_RED 5     // LED-ul roșu (iluminat automat)
 
 // Prag de întuneric: peste acest timp de descărcare considerăm că e întuneric.
 // Ajustează-l după valorile din Serial Monitor (cameră luminată vs. fotodiodă acoperită).

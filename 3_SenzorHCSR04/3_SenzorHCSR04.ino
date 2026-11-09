@@ -16,7 +16,13 @@ void loop() {
   digitalWrite(TRIG_PIN, LOW);   // Revine la LOW
 
   // Măsoară durata semnalului de răspuns
-  long duration = pulseIn(ECHO_PIN, HIGH);  // Durata semnalului Echo în μs (microsecunde)
+  long duration = pulseIn(ECHO_PIN, HIGH, 30000);  // Durata semnalului Echo în μs (microsecunde), cel mult 30 ms
+
+  if (duration == 0) {  // Niciun ecou: obiect prea departe sau fire Trig/Echo greșite
+    Serial.println("Eroare: Nu s-a primit semnal de la senzorul HC-SR04.");
+    delay(1000);
+    return;
+  }
 
   // Calculează distanța în cm
   // Formula: distance = (duration * 0.034) / 2
@@ -27,7 +33,7 @@ void loop() {
   float distance = duration * 0.034 / 2;
 
   // Afișează distanța pe monitorul serial
-  Serial.print("Distanta: ");
+  Serial.print("Distanța: ");
   Serial.print(distance);
   Serial.println(" cm");
 

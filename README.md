@@ -66,7 +66,7 @@ Proiectul este împărțit în pași, fiecare având un folder dedicat:
 - **4_LEDSiSenzori:** Integrarea tuturor funcționalităților.
 - **5_SenzorLumina (opțional):** Măsurarea luminii cu fotodioda din kit și aprinderea LED-ului pe întuneric.
 
-Fiecare componentă folosește alt pin, deci **nu demonta circuitul între pași**: la fiecare pas adaugi componente noi, iar la pasul 4 doar încarci codul.
+Fiecare componentă folosește alt pin, deci **nu demonta circuitul între pașii 1-4**: la fiecare pas adaugi componente noi, iar la pasul 4 doar încarci codul. Pasul 5 este un montaj separat.
 
 | Componentă            | Pin pe placă       |
 | --------------------- | ------------------ |
@@ -86,7 +86,7 @@ Toate componentele fac parte din kitul [NEXTLAB ENTRY I](https://shop.nextlab.te
 - Senzor DHT11 (modul cu 3 pini: `+`, `OUT`, `-`)
 - Senzor HC-SR04
 - 2 LED-uri (în exemple: roșu și albastru)
-- 3 dintre cele 5 rezistoare din kit: câte unul pentru fiecare LED și unul pentru fotodiodă (pasul 5)
+- Rezistoare din kit: câte unul pentru fiecare LED și unul pentru fotodiodă (pasul 5)
 - Fotodiodă (pentru pasul 5)
 - Breadboard și fire de legătură
 
