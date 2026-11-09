@@ -1,10 +1,13 @@
 #define LIGHT_PIN A0  // A0 → rezistor → piciorul scurt al fotodiodei; piciorul lung → GND
 #define LED_RED 5     // LED-ul roșu (iluminat automat)
 
-// Prag de întuneric: peste acest timp de descărcare considerăm că e întuneric.
-// Ajustează-l după valorile din Serial Monitor (cameră luminată vs. fotodiodă acoperită).
-const unsigned long DARK_THRESHOLD_MS = 800;
 const unsigned long MAX_TIME_MS = 1000;  // Nu așteptăm mai mult de o secundă
+
+// Pragul de întuneric se calculează la pornire, din lumina camerei:
+// "întuneric" = timp de descărcare de cel puțin DARK_FACTOR ori mai mare decât în cameră.
+// Pragul rămâne între 20 și 800 ms, ca să funcționeze și ziua, și seara.
+const unsigned long DARK_FACTOR = 4;
+unsigned long darkThresholdMs;
 
 // Fotodioda produce un curent prea mic pentru analogRead. De aceea o încărcăm
 // ca pe un mic condensator și cronometrăm cât durează până o descarcă lumina:
@@ -24,6 +27,21 @@ unsigned long measureDischargeMicros() {
 void setup() {
   Serial.begin(9600);
   pinMode(LED_RED, OUTPUT);
+
+  // Calibrare: media a 5 măsurători la lumina camerei, cu fotodioda descoperită.
+  // Butonul reset al plăcii refă calibrarea când se schimbă lumina din cameră.
+  unsigned long roomMs = 0;
+  for (int i = 0; i < 5; i++) {
+    roomMs += measureDischargeMicros() / 1000;
+  }
+  roomMs /= 5;
+  darkThresholdMs = constrain(roomMs * DARK_FACTOR, 20UL, 800UL);
+
+  Serial.print("Lumina camerei: ");
+  Serial.print(roomMs);
+  Serial.print(" ms, prag de întuneric: ");
+  Serial.print(darkThresholdMs);
+  Serial.println(" ms");
 }
 
 void loop() {
@@ -38,7 +56,7 @@ void loop() {
   }
 
   unsigned long timeMs = timeMicros / 1000;
-  bool isDark = timeMs >= DARK_THRESHOLD_MS;
+  bool isDark = timeMs >= darkThresholdMs;
 
   digitalWrite(LED_RED, isDark ? HIGH : LOW);  // Aprinde LED-ul doar pe întuneric
 
