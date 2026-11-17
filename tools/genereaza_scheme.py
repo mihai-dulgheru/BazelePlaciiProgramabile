@@ -244,7 +244,7 @@ def main():
     note = "Firele roșii = 5V, negre = GND. + marchează piciorul lung (anodul)."
     note5 = "Firele negre = GND. + marchează piciorul lung; atenție, la fotodiodă piciorul lung merge la GND."
     steps = {
-        "1_LEDuri": ("Pasul 1: LED-uri", note, combine(leds())),
+        "1_LEDuri": ("Pasul 1: LED-uri", "Firele negre = GND. + marchează piciorul lung (anodul).", combine(leds())),
         "2_SenzorDHT11": ("Pasul 2: se adaugă DHT11 (LED-urile de la pasul 1 rămân)", note, combine(leds(), dht())),
         "3_SenzorHCSR04": ("Pasul 3: se adaugă HC-SR04 (montajul de la pașii 1-2 rămâne)", note,
                            combine(leds(), dht(), hc())),
@@ -253,7 +253,7 @@ def main():
     }
     for folder, (title, n, (parts, wires, used)) in steps.items():
         check(wires)
-        with open(os.path.join(ROOT, folder, "schema_montaj.svg"), "w", encoding="utf-8", newline="\n") as f:
+        with open(os.path.join(ROOT, folder, "schema_montaj.svg"), "w", encoding="utf-8") as f:
             f.write(svg(title, n, parts, wires, used))
 
 

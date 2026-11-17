@@ -4,7 +4,7 @@
 .pin{font-size:10px;fill:#cdbfe0}.on{fill:#ffeb3b;font-weight:700;font-size:11px}</style>
 <rect width="1070" height="580" fill="#ffffff"/>
 <text x="20" y="34" class="title" fill="#222">Pasul 1: LED-uri</text>
-<text x="20" y="58" class="sm" fill="#555">Firele roșii = 5V, negre = GND. + marchează piciorul lung (anodul).</text>
+<text x="20" y="58" class="sm" fill="#555">Firele negre = GND. + marchează piciorul lung (anodul).</text>
 <rect x="620" y="190" width="420" height="280" rx="12" fill="#5b2c86" stroke="#3d1d5c" stroke-width="2"/>
 <rect x="602" y="250" width="60" height="50" rx="3" fill="#c9c9c9" stroke="#999"/>
 <text x="632" y="317" class="sm" fill="#ddd" text-anchor="middle">USB</text>
