@@ -5,7 +5,6 @@ Acest proiect demonstrează utilizarea combinată a mai multor senzori și LED-u
 ## Materiale
 
 - Prezentarea lecțiilor: [Bazele plăcii programabile.pptx](Bazele%20pl%C4%83cii%20programabile.pptx) (și în format [PDF](Bazele%20pl%C4%83cii%20programabile.pdf))
-- Videoclip cu aplicația finală de la pasul 4: [Demo aplicație - Monitorizare senzori și control LED-uri.mp4](Demo%20aplica%C8%9Bie%20-%20Monitorizare%20senzori%20%C8%99i%20control%20LED-uri.mp4)
 
 ---
 
@@ -65,6 +64,8 @@ Proiectul este împărțit în pași, fiecare având un folder dedicat:
 - **3_SenzorHCSR04:** Măsurarea distanței.
 - **4_LEDSiSenzori:** Integrarea tuturor funcționalităților.
 - **5_SenzorLumina (opțional):** Măsurarea luminii cu fotodioda din kit și aprinderea LED-ului pe întuneric.
+
+Fiecare folder are o schemă de montaj (`schema_montaj.svg`), afișată și în fișierul `conexiuni_si_testare.md` al pasului.
 
 Fiecare componentă folosește alt pin, deci **nu demonta circuitul între pașii 1-4**: la fiecare pas adaugi componente noi, iar la pasul 4 doar încarci codul. Pasul 5 este un montaj separat.
 

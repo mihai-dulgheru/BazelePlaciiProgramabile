@@ -4,12 +4,16 @@ Dacă ai parcurs pașii 1-3 fără să demontezi circuitul, montajul este deja c
 
 ## Conexiuni hardware
 
+![Schema de montaj pentru pasul 4](schema_montaj.svg)
+
+Pe breadboard, cele 5 găuri a-e din aceeași coloană numerotată sunt legate între ele (la fel f-j).
+
 ### 1. Alimentare
 
 Placa are doi pini 5V și trei pini GND. Pinii 5V și doi dintre pinii GND sunt în zona **POWER** a plăcii, iar al treilea GND e în rândul de sus, lângă pinul 13.
 
 - **5V:** ai nevoie de două legături și placa are doi pini: pinul `+` al DHT11 → primul pin 5V, pinul **VCC** al HC-SR04 → al doilea pin 5V.
-- **GND:** ai nevoie de patru legături (două LED-uri, DHT11, HC-SR04), dar placa are doar trei pini. De aceea, catozii celor două LED-uri stau pe același rând de pe breadboard, legat cu un singur fir la primul pin GND. Pinul `-` al DHT11 → al doilea pin GND, pinul **GND** al HC-SR04 → al treilea.
+- **GND:** ai nevoie de patru legături (două LED-uri, DHT11, HC-SR04), dar placa are doar trei pini. De aceea, catozii celor două LED-uri stau pe același rând de pe breadboard, legat cu un singur fir la pinul GND din rândul de sus (lângă pinul 13). Pinul `-` al DHT11 → primul GND din zona POWER, pinul **GND** al HC-SR04 → al doilea GND din zona POWER.
 
 ### 2. LED-uri
 
@@ -24,11 +28,11 @@ Placa are doi pini 5V și trei pini GND. Pinii 5V și doi dintre pinii GND sunt 
 
 - Pinul `+` → 5V pe Arduino (primul pin 5V).
 - Pinul `OUT` → Pin digital D2 pe Arduino.
-- Pinul `-` → al doilea pin GND.
+- Pinul `-` → primul GND din zona POWER.
 
 ### 4. Senzor HC-SR04
 
-- Pinul **GND** → al treilea pin GND.
+- Pinul **GND** → al doilea GND din zona POWER.
 - Pinul **Echo** → Pin digital D4 pe Arduino.
 - Pinul **Trig** → Pin digital D3 pe Arduino.
 - Pinul **VCC** → 5V pe Arduino (al doilea pin 5V).

@@ -2,6 +2,10 @@
 
 ## Conexiuni hardware
 
+![Schema de montaj pentru pasul 1](schema_montaj.svg)
+
+Pe breadboard, cele 5 găuri a-e din aceeași coloană numerotată sunt legate între ele (la fel f-j). Rândul comun de GND al LED-urilor este coloana 6 din schemă.
+
 1. LED roșu:
    - Anodul (piciorul mai lung) → Rezistor din kit → Pin digital D5 pe Arduino.
    - Catodul (piciorul mai scurt) → rândul comun de GND al LED-urilor (vezi mai jos).

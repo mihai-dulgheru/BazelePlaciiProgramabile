@@ -2,6 +2,10 @@
 
 ## Conexiuni hardware
 
+![Schema de montaj pentru pasul 3](schema_montaj.svg)
+
+Schema păstrează montajul de la pașii 1-2. Modulul HC-SR04 este înfipt în breadboard, iar firele pleacă din aceeași coloană cu pinul lui.
+
 1. Senzor HC-SR04:
    - Pinul **GND** → GND pe Arduino.
    - Pinul **Echo** → Pin digital D4 pe Arduino.
