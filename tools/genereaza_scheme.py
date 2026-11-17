@@ -77,15 +77,20 @@ def board(used):
     return s
 
 
-def breadboard():
+def breadboard(hidden_top, hidden_bottom):
+    """Numerele coloanelor sunt sus și jos, ca pe breadboard-ul real; unde trece un fir
+    sau piciorul unui modul, numărul de pe acea margine nu se desenează."""
+    assert not hidden_top & hidden_bottom, f"coloane fără număr: {hidden_top & hidden_bottom}"
     s = [f'<rect x="{BBX}" y="{BBY}" width="380" height="260" rx="8" fill="#f1f1ef" stroke="#c8c8c4" stroke-width="2"/>',
          f'<rect x="{BBX + 10}" y="{BBY + 122}" width="360" height="16" rx="3" fill="#dcdcd8"/>']
     for c in range(1, 18):
         for r in ROW:
             x, y = hole(c, r)
             s.append(f'<rect x="{x - 3}" y="{y - 3}" width="6" height="6" fill="#4a4a4a"/>')
-        if c % 5 == 1:
+        if c not in hidden_top:
             s.append(f'<text x="{COL(c)}" y="{BBY + 14}" class="xs" text-anchor="middle">{c}</text>')
+        if c not in hidden_bottom:
+            s.append(f'<text x="{COL(c)}" y="{BBY + 252}" class="xs" text-anchor="middle">{c}</text>')
     for r, y in ROW.items():
         s.append(f'<text x="{BBX + 12}" y="{y + 3}" class="xs" text-anchor="middle">{r}</text>')
     return s
@@ -162,11 +167,11 @@ MOD_Y = ROW["j"] + 40
 
 
 def leds():
-    """Pasul 1: D5 → R (coloanele 3-6) → LED roșu; D6 → R (5-8) → LED albastru; catozii în coloana 7 → GND."""
-    parts = resistor(3, 6, "b") + resistor(5, 8, "c")
-    parts += diode(6, 7, "d", "#ff5252", "#b71c1c", -11, -8)
-    parts += diode(8, 7, "e", "#448aff", "#0d47a1", 11, -8)
-    wires = [over(3, "5", 140, CD5), over(5, "6", 155, CD6), over(7, "GNDs", 170, CGND)]
+    """Pasul 1: D5 → R (coloanele 7-10) → LED roșu; D6 → R (9-12) → LED albastru; catozii în coloana 11 → GND."""
+    parts = resistor(7, 10, "b") + resistor(9, 12, "c")
+    parts += diode(10, 11, "d", "#ff5252", "#b71c1c", -11, -8)
+    parts += diode(12, 11, "e", "#448aff", "#0d47a1", 11, -8)
+    wires = [over(7, "5", 140, CD5), over(9, "6", 155, CD6), over(11, "GNDs", 170, CGND)]
     return parts, wires, ["5", "6", "GNDs"]
 
 
@@ -180,7 +185,7 @@ def dht():
     wires = [around(12, "f", "ef", 555, 490, "5V1", C5V),
              around(13, "i", "ij", 65, 90, "2", CD2),
              around(14, "h", "hi", 510, 535, "GND2", CGND)]
-    return parts, wires, ["5V1", "2", "GND2"]
+    return parts, wires, ["5V1", "2", "GND2", 12, 13, 14]  # numerele = coloanele picioarelor
 
 
 def hc():
@@ -194,7 +199,7 @@ def hc():
              around(3, "h", "gh", 80, 105, "3", CD3),
              around(4, "f", "ef", 95, 120, "4", CD4),
              around(5, "h", "gh", 525, 520, "GND1", CGND)]
-    return parts, wires, ["5V2", "3", "4", "GND1"]
+    return parts, wires, ["5V2", "3", "4", "GND1", 2, 3, 4, 5]
 
 
 def light():
@@ -209,7 +214,9 @@ def light():
 
 
 def svg(title, note, parts, wires, used):
-    body = board(used) + breadboard() + parts + [x for pts, color in wires for x in wire(pts, color)]
+    top = {(pts[0][0] - COL(1)) // 20 + 1 for pts, _ in wires if pts[0][1] == ROW["a"] and pts[1][1] < ROW["a"]}
+    bottom = {u for u in used if isinstance(u, int)}
+    body = board(used) + breadboard(top, bottom) + parts + [x for pts, color in wires for x in wire(pts, color)]
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="Segoe UI, Helvetica, Arial, sans-serif">
 <style>.title{{font-size:20px;font-weight:700}}.sm{{font-size:13px}}.xs{{font-size:9px;fill:#777}}.w{{fill:#fff;font-size:10px}}
 .b{{font-weight:700;fill:#222}}.plus{{font-size:14px;font-weight:700;fill:#222}}
