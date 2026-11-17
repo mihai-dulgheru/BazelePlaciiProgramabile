@@ -10,11 +10,13 @@ void setup() {
 }
 
 void loop() {
+  delay(2000);  // DHT11 are nevoie de timp după alimentare și între două citiri
+
   float temperature = dht.readTemperature();
   float humidity = dht.readHumidity();
 
   if (isnan(temperature) || isnan(humidity)) {
-    Serial.println("Eroare la citirea senzorului!");
+    Serial.println("Eroare la citirea senzorului DHT11!");
   } else {
     Serial.print("Temperatura: ");
     Serial.print(temperature);
@@ -22,5 +24,4 @@ void loop() {
     Serial.print(humidity);
     Serial.println(" %");
   }
-  delay(2000);
 }

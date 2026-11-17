@@ -1,6 +1,6 @@
 # Pasul 5 (opțional): Senzor de lumină cu fotodioda din kit
 
-Fotodioda din kit arată ca un LED transparent. Lumina o face să lase să treacă un curent foarte mic, prea mic pentru `analogRead`. De aceea, placa o încarcă precum un mic condensator și cronometrează cât durează până când lumina o descarcă: **cu cât e mai întuneric, cu atât timpul e mai mare**. Când timpul trece de prag, LED-ul roșu se aprinde, ca un iluminat automat. Pragul îl alege placa la pornire, din lumina camerei: întuneric înseamnă un timp de cel puțin 4 ori mai mare decât în cameră.
+Fotodioda din kit arată ca un LED transparent. Lumina face să treacă prin ea un curent foarte mic, prea mic pentru `analogRead`. De aceea, placa o încarcă precum un mic condensator și cronometrează cât durează până când lumina o descarcă: **cu cât e mai întuneric, cu atât timpul e mai mare**. Când timpul trece de prag, LED-ul roșu se aprinde, ca un iluminat automat. Pragul îl alege placa la pornire, din lumina camerei: întuneric înseamnă un timp de cel puțin 4 ori mai mare decât în cameră (pragul rămâne însă între 20 și 800 ms).
 
 Pasul 5 este un montaj separat de pașii 1-4: ai nevoie doar de fotodiodă, de LED-ul roșu și de două rezistoare.
 
@@ -14,7 +14,7 @@ Pe breadboard, cele 5 găuri a-e din aceeași coloană numerotată sunt legate �
    - Pin analogic A0 pe Arduino → Rezistor din kit → Piciorul scurt al fotodiodei.
    - Piciorul lung al fotodiodei → GND pe Arduino.
 
-   Spre deosebire de LED, fotodioda se montează cu piciorul scurt (catodul) spre pin și piciorul lung (anodul) la GND. Așa lucrează în **polarizare inversă**: nu lasă curentul să treacă, iar doar lumina o descarcă.
+   Spre deosebire de LED, fotodioda se montează cu piciorul scurt (catodul) spre pin și piciorul lung (anodul) la GND. Așa lucrează în **polarizare inversă**: nu lasă curentul să treacă, și doar lumina o descarcă.
 
    Rezistorul protejează placa dacă fotodioda este montată pe dos.
 
@@ -27,7 +27,7 @@ Pe breadboard, cele 5 găuri a-e din aceeași coloană numerotată sunt legate �
 ## Modalitate de rulare și testare
 
 1. Deschide fișierul `5_SenzorLumina.ino` în Arduino IDE.
-2. Conectează placa Arduino la computer.
+2. Conectează placa la calculator cu cablul USB.
 3. Încarcă codul pe placă, cu fotodioda descoperită, la lumina camerei.
 4. Deschide **Serial Monitor** și setează viteza la **9600 baud**. La pornire, placa afișează lumina camerei și pragul de întuneric, de exemplu „Lumina camerei: 17 ms, prag de întuneric: 68 ms”. Deschiderea Serial Monitor repornește placa, așa că ține fotodioda descoperită și atunci.
 5. Testează:

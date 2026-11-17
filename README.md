@@ -20,7 +20,7 @@ Acest proiect demonstrează utilizarea combinată a mai multor senzori și LED-u
 
 ### 2. Configurează MiniCore
 
-MiniCore este o platformă pentru suport extins al microcontrollerelor ATmega328.
+MiniCore este o platformă pentru suport extins al microcontrolerelor ATmega328.
 
 #### **Cum să instalezi MiniCore:**
 

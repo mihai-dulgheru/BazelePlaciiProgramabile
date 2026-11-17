@@ -44,7 +44,7 @@ Placa are doi pini 5V și trei pini GND. Pinii 5V și doi dintre pinii GND sunt 
 Codul folosește biblioteca **DHT sensor library** (Adafruit); dacă nu ai instalat-o la pasul 2, urmează secțiunea „4. Instalează biblioteca DHT” din [README](../README.md).
 
 1. Deschide fișierul `4_LEDSiSenzori.ino` în Arduino IDE.
-2. Conectează placa Arduino la computer.
+2. Conectează placa la calculator cu cablul USB.
 3. Încarcă codul pe placă.
 4. Deschide **Serial Monitor** și setează viteza la **9600 baud**.
 5. Testează funcționalitatea:
