@@ -51,13 +51,18 @@ CD2, CD3, CD4, CD5, CD6, CA0 = "#f9a825", "#2e7d32", "#1565c0", "#ef6c00", "#6a1
 
 def board(used):
     s = [f'<rect x="{BX}" y="{BY}" width="{BW}" height="{BH}" rx="12" fill="#5b2c86" stroke="#3d1d5c" stroke-width="2"/>',
-         f'<rect x="{BX - 18}" y="{BY + 40}" width="60" height="50" rx="3" fill="#c9c9c9" stroke="#999"/>',
-         f'<text x="{BX + 12}" y="{BY + 107}" class="sm" fill="#ddd" text-anchor="middle">USB</text>',
+         f'<rect x="{BX - 18}" y="{BY + 60}" width="60" height="50" rx="3" fill="#c9c9c9" stroke="#999"/>',
+         f'<text x="{BX + 12}" y="{BY + 127}" class="sm" fill="#ddd" text-anchor="middle">USB</text>',
          f'<rect x="{BX - 8}" y="{BY + 190}" width="50" height="45" rx="3" fill="#222"/>',
-         f'<rect x="{BX + 60}" y="{BY + 85}" width="28" height="28" rx="3" fill="#888"/>',
-         f'<circle cx="{BX + 74}" cy="{BY + 99}" r="8" fill="#333"/>',
-         f'<text x="{BX + 74}" y="{BY + 130}" class="sm" fill="#ddd" text-anchor="middle">reset</text>',
-         f'<rect x="{BX + 240}" y="{BY + 95}" width="50" height="50" fill="#1b1b1b" transform="rotate(45 {BX + 265} {BY + 120})"/>',
+         # butonul reset, în colțul din stânga sus (ca pe placă)
+         f'<rect x="{BX + 16}" y="{BY + 10}" width="26" height="26" rx="3" fill="#888"/>',
+         f'<circle cx="{BX + 29}" cy="{BY + 23}" r="7" fill="#333"/>',
+         f'<text x="{BX + 29}" y="{BY + 50}" class="sm" fill="#ddd" text-anchor="middle">reset</text>',
+         # microcontrolerul ATmega328PB
+         *[f'<rect x="{BX + 247 + i * 8}" y="{BY + 92}" width="3" height="56" fill="#aaa"/>' for i in range(5)],
+         *[f'<rect x="{BX + 237}" y="{BY + 102 + i * 8}" width="56" height="3" fill="#aaa"/>' for i in range(5)],
+         f'<rect x="{BX + 243}" y="{BY + 98}" width="44" height="44" rx="2" fill="#1b1b1b"/>',
+         f'<text x="{BX + 265}" y="{BY + 162}" class="sm" fill="#ddd" text-anchor="middle">ATmega328PB</text>',
          f'<text x="{BX + 210}" y="{BY + 190}" class="title" fill="#fff" text-anchor="middle">NEXTLAB.TECH A1</text>',
          f'<text x="{BX + 340}" y="{TOP_Y + 62}" class="sm" fill="#ddd" text-anchor="middle">DIGITAL (PWM~)</text>',
          f'<text x="{BX + 156}" y="{BOT_Y - 44}" class="sm" fill="#ddd" text-anchor="middle">POWER</text>',
