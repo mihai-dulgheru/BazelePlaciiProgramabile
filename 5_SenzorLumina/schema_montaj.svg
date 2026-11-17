@@ -6,13 +6,24 @@
 <text x="20" y="34" class="title" fill="#222">Pasul 5: fotodiodă și LED roșu (montaj separat)</text>
 <text x="20" y="58" class="sm" fill="#555">Firele negre = GND. + marchează piciorul lung; atenție, la fotodiodă piciorul lung merge la GND.</text>
 <rect x="620" y="190" width="420" height="280" rx="12" fill="#5b2c86" stroke="#3d1d5c" stroke-width="2"/>
-<rect x="602" y="230" width="60" height="50" rx="3" fill="#c9c9c9" stroke="#999"/>
-<text x="632" y="297" class="sm" fill="#ddd" text-anchor="middle">USB</text>
+<rect x="602" y="250" width="60" height="50" rx="3" fill="#c9c9c9" stroke="#999"/>
+<text x="632" y="317" class="sm" fill="#ddd" text-anchor="middle">USB</text>
 <rect x="612" y="380" width="50" height="45" rx="3" fill="#222"/>
-<rect x="680" y="275" width="28" height="28" rx="3" fill="#888"/>
-<circle cx="694" cy="289" r="8" fill="#333"/>
-<text x="694" y="320" class="sm" fill="#ddd" text-anchor="middle">reset</text>
-<rect x="860" y="285" width="50" height="50" fill="#1b1b1b" transform="rotate(45 885 310)"/>
+<rect x="636" y="200" width="26" height="26" rx="3" fill="#888"/>
+<circle cx="649" cy="213" r="7" fill="#333"/>
+<text x="649" y="240" class="sm" fill="#ddd" text-anchor="middle">reset</text>
+<rect x="867" y="282" width="3" height="56" fill="#aaa"/>
+<rect x="875" y="282" width="3" height="56" fill="#aaa"/>
+<rect x="883" y="282" width="3" height="56" fill="#aaa"/>
+<rect x="891" y="282" width="3" height="56" fill="#aaa"/>
+<rect x="899" y="282" width="3" height="56" fill="#aaa"/>
+<rect x="857" y="292" width="56" height="3" fill="#aaa"/>
+<rect x="857" y="300" width="56" height="3" fill="#aaa"/>
+<rect x="857" y="308" width="56" height="3" fill="#aaa"/>
+<rect x="857" y="316" width="56" height="3" fill="#aaa"/>
+<rect x="857" y="324" width="56" height="3" fill="#aaa"/>
+<rect x="863" y="288" width="44" height="44" rx="2" fill="#1b1b1b"/>
+<text x="885" y="352" class="sm" fill="#ddd" text-anchor="middle">ATmega328PB</text>
 <text x="830" y="380" class="title" fill="#fff" text-anchor="middle">NEXTLAB.TECH A1</text>
 <text x="960" y="272" class="sm" fill="#ddd" text-anchor="middle">DIGITAL (PWM~)</text>
 <text x="776" y="406" class="sm" fill="#ddd" text-anchor="middle">POWER</text>
