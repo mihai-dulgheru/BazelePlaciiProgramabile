@@ -13,26 +13,26 @@ Pe breadboard, cele 5 găuri a-e din aceeași coloană numerotată sunt legate �
 Placa are doi pini 5V și trei pini GND. Pinii 5V și doi dintre pinii GND sunt în zona **POWER** a plăcii, iar al treilea GND e în rândul de sus, lângă pinul 13.
 
 - **5V:** ai nevoie de două legături și placa are doi pini: pinul `+` al DHT11 → primul pin 5V, pinul **VCC** al HC-SR04 → al doilea pin 5V.
-- **GND:** ai nevoie de patru legături (două LED-uri, DHT11, HC-SR04), dar placa are doar trei pini. De aceea, catozii celor două LED-uri stau pe același rând de pe breadboard, legat cu un singur fir la pinul GND din rândul de sus (lângă pinul 13). Pinul `-` al DHT11 → primul GND din zona POWER, pinul **GND** al HC-SR04 → al doilea GND din zona POWER.
+- **GND:** ai nevoie de patru legături (două LED-uri, DHT11, HC-SR04), dar placa are doar trei pini. De aceea, catozii celor două LED-uri stau în aceeași coloană a breadboard-ului, legată cu un singur fir la pinul GND din rândul de sus (lângă pinul 13). Pinul **GND** al HC-SR04 → primul GND din zona POWER, pinul `-` al DHT11 → al doilea GND din zona POWER.
 
 ### 2. LED-uri
 
 - **LED roșu:**
   - Anodul (piciorul mai lung) → Rezistor din kit → Pin digital D5 pe Arduino.
-  - Catodul (piciorul mai scurt) → rândul comun de GND al LED-urilor.
+  - Catodul (piciorul mai scurt) → coloana comună de GND a LED-urilor.
 - **LED albastru:**
   - Anodul (piciorul mai lung) → Rezistor din kit → Pin digital D6 pe Arduino.
-  - Catodul (piciorul mai scurt) → rândul comun de GND al LED-urilor.
+  - Catodul (piciorul mai scurt) → coloana comună de GND a LED-urilor.
 
 ### 3. Senzor DHT11
 
 - Pinul `+` → 5V pe Arduino (primul pin 5V).
 - Pinul `OUT` → Pin digital D2 pe Arduino.
-- Pinul `-` → primul GND din zona POWER.
+- Pinul `-` → al doilea GND din zona POWER.
 
 ### 4. Senzor HC-SR04
 
-- Pinul **GND** → al doilea GND din zona POWER.
+- Pinul **GND** → primul GND din zona POWER.
 - Pinul **Echo** → Pin digital D4 pe Arduino.
 - Pinul **Trig** → Pin digital D3 pe Arduino.
 - Pinul **VCC** → 5V pe Arduino (al doilea pin 5V).
