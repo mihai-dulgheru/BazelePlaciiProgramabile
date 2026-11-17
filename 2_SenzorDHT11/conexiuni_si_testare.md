@@ -2,6 +2,10 @@
 
 ## Conexiuni hardware
 
+![Schema de montaj pentru pasul 2](schema_montaj.svg)
+
+Schema păstrează LED-urile de la pasul 1. Modulul DHT11 este înfipt în breadboard, iar firele pleacă din aceeași coloană cu pinul lui.
+
 1. Modulul DHT11 (3 pini: `+`, `OUT`, `-`):
    - Pinul `+` → 5V pe Arduino.
    - Pinul `OUT` → Pin digital D2 pe Arduino.

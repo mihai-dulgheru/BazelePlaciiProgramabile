@@ -6,6 +6,10 @@ Pasul 5 este un montaj separat de pașii 1-4: ai nevoie doar de fotodiodă, de L
 
 ## Conexiuni hardware
 
+![Schema de montaj pentru pasul 5](schema_montaj.svg)
+
+Pe breadboard, cele 5 găuri a-e din aceeași coloană numerotată sunt legate între ele (la fel f-j).
+
 1. Fotodioda (contează sensul):
    - Pin analogic A0 pe Arduino → Rezistor din kit → Piciorul scurt al fotodiodei.
    - Piciorul lung al fotodiodei → GND pe Arduino.
