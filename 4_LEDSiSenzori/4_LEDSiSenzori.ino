@@ -77,6 +77,8 @@ void measureAndDisplayDistance() {
 
   if (distance == -1) {
     Serial.println("Eroare: Nu s-a primit semnal de la senzorul HC-SR04.");
+    isDistancePriority = false;  // Fără ecou nu e niciun obiect aproape: revine la temperatură
+    stopAlternateLEDs();
     return;
   }
 
