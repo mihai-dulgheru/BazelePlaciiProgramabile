@@ -12,14 +12,14 @@ Schema păstrează montajul de la pașii 1-2. Modulul HC-SR04 este înfipt în b
    - Pinul **Trig** → Pin digital D3 pe Arduino.
    - Pinul **VCC** → 5V pe Arduino.
 
-**Dacă păstrezi montajul de la pasul 2:** placa are doi pini 5V și trei pini GND. DHT11 folosește deja un pin 5V și un pin GND, așa că leagă HC-SR04 la celălalt pin 5V și la un pin GND liber.
+**Montajul de la pasul 2 rămâne pe breadboard:** placa are doi pini 5V și trei pini GND. DHT11 folosește deja un pin 5V și un pin GND, așa că leagă HC-SR04 la celălalt pin 5V și la un pin GND liber.
 
 ---
 
 ## Modalitate de rulare și testare
 
 1. Deschide fișierul `3_SenzorHCSR04.ino` în Arduino IDE.
-2. Conectează placa Arduino la computer.
+2. Conectează placa la calculator cu cablul USB.
 3. Încarcă codul pe placă.
 4. Deschide **Serial Monitor** și setează viteza la **9600 baud**.
 5. Testează:
