@@ -64,8 +64,9 @@ Proiectul este împărțit în pași, fiecare având un folder dedicat:
 - **3_SenzorHCSR04:** Măsurarea distanței.
 - **4_LEDSiSenzori:** Integrarea tuturor funcționalităților.
 - **5_SenzorLumina (opțional):** Măsurarea luminii cu fotodioda din kit și aprinderea LED-ului pe întuneric.
+- **tools:** Scriptul care generează schemele de montaj (`genereaza_scheme.py`). Nu e necesar pentru laborator.
 
-Fiecare folder are o schemă de montaj (`schema_montaj.svg`), afișată și în fișierul `conexiuni_si_testare.md` al pasului.
+Folderul fiecărui pas are o schemă de montaj (`schema_montaj.svg`), afișată și în fișierul `conexiuni_si_testare.md` al pasului.
 
 Fiecare componentă folosește alt pin, deci **nu demonta circuitul între pașii 1-4**: la fiecare pas adaugi componente noi, iar la pasul 4 doar încarci codul. Pasul 5 este un montaj separat.
 
