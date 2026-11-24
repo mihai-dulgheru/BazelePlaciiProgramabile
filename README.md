@@ -20,13 +20,18 @@ Acest proiect demonstrează utilizarea combinată a mai multor senzori și LED-u
 
 ### 2. Configurează MiniCore
 
-MiniCore este o platformă pentru suport extins al microcontrolerelor ATmega328.
+MiniCore este un pachet de plăci care adaugă în Arduino IDE suportul pentru microcontrolerul plăcii, ATmega328PB.
 
-#### **Cum să instalezi MiniCore:**
+#### Cum să instalezi MiniCore
 
 1. Deschide Arduino IDE.
 2. Accesează **File > Preferences**.
-3. În câmpul **Additional Boards Manager URLs**, adaugă următorul URL: <https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json>
+3. În câmpul **Additional Boards Manager URLs**, adaugă următorul URL:
+
+   ```text
+   https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
+   ```
+
 4. Accesează **Tools > Board > Boards Manager...**.
 5. Așteaptă să se descarce indexurile platformei.
 6. Găsește MiniCore în listă și apasă pe **Install**.
@@ -41,7 +46,7 @@ MiniCore este o platformă pentru suport extins al microcontrolerelor ATmega328.
 3. Conectează placa la calculator cu cablul USB.
 4. Mergi la **Tools > Port** și selectează: **COM3** (sau alt port disponibil în funcție de sistemul tău).
 
-Dacă portul plăcii nu apare în listă, instalează driverul **CH340** (linkul este în lecția „Bazele plăcii programabile”, pasul 6, de pe labs.ase.ro), apoi reconectează placa.
+Dacă portul plăcii nu apare în listă, instalează driverul **CH340** (linkul este pe slide-ul „Verificare port COM” din [prezentare](Bazele%20pl%C4%83cii%20programabile.pptx) și în lecția „Bazele plăcii programabile”, pasul 6, de pe labs.ase.ro), apoi reconectează placa.
 
 ---
 

@@ -14,7 +14,7 @@ Pe breadboard, cele 5 găuri a-e din aceeași coloană numerotată sunt legate �
    - Pin analogic A0 pe Arduino → Rezistor din kit → Piciorul scurt al fotodiodei.
    - Piciorul lung al fotodiodei → GND pe Arduino.
 
-   Spre deosebire de LED, fotodioda se montează cu piciorul scurt (catodul) spre pin și piciorul lung (anodul) la GND. Așa lucrează în **polarizare inversă**: nu lasă curentul să treacă, și doar lumina o descarcă.
+   Spre deosebire de LED, fotodioda se montează cu piciorul scurt (catodul) spre pin și piciorul lung (anodul) la GND. Așa lucrează în **polarizare inversă**: nu lasă curentul să treacă, așa că doar lumina o descarcă.
 
    Rezistorul protejează placa dacă fotodioda este montată pe dos.
 

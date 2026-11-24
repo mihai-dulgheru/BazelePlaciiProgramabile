@@ -1,4 +1,4 @@
-# Pasul 4: Aplicație completă - monitorizare senzori și control LED-uri
+# Pasul 4: Aplicație completă – monitorizare senzori și control LED-uri
 
 Dacă ai parcurs pașii 1-3 fără să demontezi circuitul, montajul este deja complet: verifică legăturile de mai jos și încarcă direct codul.
 
@@ -49,10 +49,10 @@ Modulul se înfige cu corpul spre exteriorul breadboard-ului, cu pinii `-`, `OUT
 
 ### 4. Senzor HC-SR04
 
-- Pinul **GND** → primul GND din zona POWER.
-- Pinul **Echo** → Pin digital D4 pe Arduino.
-- Pinul **Trig** → Pin digital D3 pe Arduino.
 - Pinul **VCC** → 5V pe Arduino (al doilea pin 5V).
+- Pinul **Trig** → Pin digital D3 pe Arduino.
+- Pinul **Echo** → Pin digital D4 pe Arduino.
+- Pinul **GND** → primul GND din zona POWER.
 
 ---
 

@@ -6,11 +6,11 @@
 
 Schema păstrează montajul de la pașii 1-2. Modulul HC-SR04 este înfipt în breadboard, iar firele pleacă din aceeași coloană cu pinul lui.
 
-1. Senzor HC-SR04:
-   - Pinul **GND** → GND pe Arduino.
-   - Pinul **Echo** → Pin digital D4 pe Arduino.
-   - Pinul **Trig** → Pin digital D3 pe Arduino.
+1. Senzor HC-SR04 (pinii, de la stânga la dreapta, ca în schemă):
    - Pinul **VCC** → 5V pe Arduino.
+   - Pinul **Trig** → Pin digital D3 pe Arduino.
+   - Pinul **Echo** → Pin digital D4 pe Arduino.
+   - Pinul **GND** → GND pe Arduino.
 
 **Montajul de la pasul 2 rămâne pe breadboard:** placa are doi pini 5V și trei pini GND. DHT11 folosește deja un pin 5V și un pin GND, așa că leagă HC-SR04 la celălalt pin 5V și la un pin GND liber.
 
