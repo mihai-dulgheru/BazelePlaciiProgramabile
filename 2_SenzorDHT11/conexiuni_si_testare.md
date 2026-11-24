@@ -15,11 +15,11 @@ Schema păstrează LED-urile de la pasul 1. Modulul DHT11 este înfipt în bread
 
 Fiecare fir din schemă are o literă, scrisă la ambele capete. Firele A-C sunt cele de la pasul 1; la acest pas adaugi firele D-F:
 
-| Fir | Culoare | Pe breadboard        | Pe placă                       | Ce leagă              |
-| --- | ------- | -------------------- | ------------------------------ | --------------------- |
-| D   | negru   | coloana 12, rândul h | al doilea GND din zona POWER   | pinul `-` al DHT11    |
-| E   | galben  | coloana 13, rândul i | pinul 2 (D2)                   | pinul `OUT` al DHT11  |
-| F   | roșu    | coloana 14, rândul f | primul 5V din zona POWER       | pinul `+` al DHT11    |
+| Fir | Culoare | Pe breadboard        | Pe placă                     | Ce leagă             |
+| --- | ------- | -------------------- | ---------------------------- | -------------------- |
+| D   | negru   | coloana 12, rândul h | al doilea GND din zona POWER | pinul `-` al DHT11   |
+| E   | galben  | coloana 13, rândul i | pinul 2 (D2)                 | pinul `OUT` al DHT11 |
+| F   | roșu    | coloana 14, rândul f | primul 5V din zona POWER     | pinul `+` al DHT11   |
 
 ---
 
@@ -35,3 +35,5 @@ Codul folosește biblioteca **DHT sensor library** (Adafruit). Instaleaz-o înai
 2. Conectează placa la calculator cu cablul USB.
 3. Încarcă codul pe placă.
 4. Deschide **Serial Monitor**, setează viteza la **9600 baud** și observă valorile de temperatură și umiditate.
+
+Dacă apare mesajul „Eroare la citirea senzorului DHT11!”, verifică firele D, E, F și orientarea modulului (pinii `-`, `OUT`, `+` de la stânga la dreapta).
