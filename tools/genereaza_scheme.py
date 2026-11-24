@@ -12,10 +12,10 @@ import os
 from itertools import combinations
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-W, H = 1070, 580
+W, H = 1110, 620
 
 # --- Breadboard mini: 17 coloane; găurile a-e (și f-j) din aceeași coloană sunt legate ---
-BBX, BBY = 110, 190
+BBX, BBY = 130, 220
 
 
 def COL(c):
@@ -24,7 +24,12 @@ def COL(c):
 
 ROW = {r: BBY + 30 + i * 20 for i, r in enumerate("abcde")}
 ROW.update({r: BBY + 150 + i * 20 for i, r in enumerate("fghij")})
-LANE = {"ef": 320, "fg": 350, "gh": 370, "hi": 390, "ij": 410}  # benzi printre rândurile din jumătatea de jos
+LANE = {"ef": BBY + 130, "fg": BBY + 160, "gh": BBY + 180, "hi": BBY + 200, "ij": BBY + 220}  # printre rândurile de jos
+
+# Benzile din afara breadboard-ului, la 24 px una de alta (0 = cea mai depărtată de breadboard):
+TOP = [152, 174, 196]  # firele LED-urilor, de la rândul a la rândul de sus al plăcii
+LEFT = [(50, 86), (74, 108), (98, 130)]  # pe stânga și pe deasupra, spre D2-D4
+RIGHT = [(610, 524), (586, 548), (562, 572), (538, 596)]  # pe dreapta și pe dedesubt, spre POWER / ANALOG IN
 
 
 def hole(c, r):
@@ -32,7 +37,7 @@ def hole(c, r):
 
 
 # --- Placa NEXTLAB A1 ---
-BX, BY, BW, BH = 620, 190, 420, 280
+BX, BY, BW, BH = 660, 220, 420, 280
 TOP_Y, BOT_Y = BY + 20, BY + BH - 20
 PINS = {}  # cheie -> (x, y, etichetă)
 for i, n in enumerate(["AREF", "GND", "13", "12", "11", "10", "9", "8"]):
@@ -110,25 +115,32 @@ def path(pts, radius=8):
 
 def wire(pts, color):
     d = path(pts)
-    (x1, y1), (x2, y2) = pts[0], pts[-1]
     return [f'<path d="{d}" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>',
-            f'<path d="{d}" fill="none" stroke="{color}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>',
-            f'<circle cx="{x1}" cy="{y1}" r="4" fill="{color}" stroke="#fff"/>',
-            f'<circle cx="{x2}" cy="{y2}" r="4" fill="{color}" stroke="#fff"/>']
+            f'<path d="{d}" fill="none" stroke="{color}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>']
 
 
-def over(c, pin, lane_y, color):
-    """Din rândul a, drept în sus, apoi pe deasupra până la un pin din rândul de sus al plăcii."""
+def badges(pts, color, n):
+    """Litera firului la ambele capete (aceeași literă = același fir). Litere, nu cifre,
+    ca să nu se confunde cu numerele pinilor și ale coloanelor."""
+    text = "#222" if color == CD2 else "#fff"  # pe galben, litera albă nu se vede
+    return [f'<circle cx="{x}" cy="{y}" r="7.5" fill="{color}" stroke="#fff" stroke-width="1.5"/>'
+            f'<text x="{x}" y="{y + 3.5}" class="num" fill="{text}" text-anchor="middle">{chr(64 + n)}</text>'
+            for x, y in (pts[0], pts[-1])]
+
+
+def over(c, pin, lane, color):
+    """Din rândul a, drept în sus, apoi pe deasupra (banda TOP[lane]) până la un pin din rândul de sus al plăcii."""
     x, y = hole(c, "a")
     px, py, _ = PINS[pin]
-    return [(x, y), (x, lane_y), (px, lane_y), (px, py)], color
+    return [(x, y), (x, TOP[lane]), (px, TOP[lane]), (px, py)], color
 
 
-def around(c, r, lane, x_lane, y_lane, pin, color):
-    """Din jumătatea de jos: pe banda `lane` spre stânga/dreapta până la x_lane,
-    apoi pe deasupra (pin sus) sau pe dedesubt (pin jos) la înălțimea y_lane."""
+def around(c, r, lane, side, pin, color):
+    """Din jumătatea de jos: pe banda `lane` spre stânga/dreapta până la side = (x, y) din LEFT/RIGHT,
+    apoi pe deasupra (pin sus) sau pe dedesubt (pin jos) la înălțimea y."""
     x, y = hole(c, r)
     ly = LANE[lane]
+    x_lane, y_lane = side
     px, py, _ = PINS[pin]
     return [(x, y), (x, ly), (x_lane, ly), (x_lane, y_lane), (px, y_lane), (px, py)], color
 
@@ -171,20 +183,21 @@ def leds():
     parts = resistor(7, 10, "b") + resistor(9, 12, "c")
     parts += diode(10, 11, "d", "#ff5252", "#b71c1c", -11, -8)
     parts += diode(12, 11, "e", "#448aff", "#0d47a1", 11, -8)
-    wires = [over(7, "5", 140, CD5), over(9, "6", 155, CD6), over(11, "GNDs", 170, CGND)]
+    wires = [over(7, "5", 0, CD5), over(9, "6", 1, CD6), over(11, "GNDs", 2, CGND)]
     return parts, wires, ["5", "6", "GNDs"]
 
 
 def dht():
-    """DHT11 în coloanele 12-14 (+, OUT, -)."""
+    """DHT11 în coloanele 12-14 (-, OUT, +): modulul e întors cu 180°, altfel pinii lui laterali
+    ar ocupa două rânduri din breadboard."""
     x0 = COL(13) - 44
-    parts = module([12, 13, 14], ["+", "OUT", "-"], (x0, MOD_Y, 88, 80), "DHT11")
+    parts = module([12, 13, 14], ["-", "OUT", "+"], (x0, MOD_Y, 88, 80), "DHT11")
     parts.append(f'<rect x="{x0 + 14}" y="{MOD_Y + 32}" width="60" height="42" rx="3" fill="#e8f1fb"/>')
     parts += [f'<line x1="{x0 + 18}" y1="{MOD_Y + 40 + i * 9}" x2="{x0 + 70}" y2="{MOD_Y + 40 + i * 9}" '
               f'stroke="#9bb8d8" stroke-width="2"/>' for i in range(4)]
-    wires = [around(12, "f", "ef", 555, 490, "5V1", C5V),
-             around(13, "i", "ij", 65, 90, "2", CD2),
-             around(14, "h", "hi", 510, 535, "GND2", CGND)]
+    wires = [around(12, "h", "hi", RIGHT[3], "GND2", CGND),
+             around(13, "i", "ij", LEFT[0], "2", CD2),
+             around(14, "f", "ef", RIGHT[0], "5V1", C5V)]
     return parts, wires, ["5V1", "2", "GND2", 12, 13, 14]  # numerele = coloanele picioarelor
 
 
@@ -195,10 +208,10 @@ def hc():
     for cx in (x0 + 35, x0 + 165):
         parts.append(f'<circle cx="{cx}" cy="{MOD_Y + 48}" r="24" fill="#cfd4da" stroke="#8a9199" stroke-width="3"/>'
                      f'<circle cx="{cx}" cy="{MOD_Y + 48}" r="14" fill="#5f6670"/>')
-    wires = [around(2, "g", "fg", 540, 505, "5V2", C5V),
-             around(3, "h", "gh", 80, 105, "3", CD3),
-             around(4, "f", "ef", 95, 120, "4", CD4),
-             around(5, "h", "gh", 525, 520, "GND1", CGND)]
+    wires = [around(2, "g", "fg", RIGHT[1], "5V2", C5V),
+             around(3, "h", "gh", LEFT[1], "3", CD3),
+             around(4, "f", "ef", LEFT[2], "4", CD4),
+             around(5, "h", "gh", RIGHT[2], "GND1", CGND)]
     return parts, wires, ["5V2", "3", "4", "GND1", 2, 3, 4, 5]
 
 
@@ -207,9 +220,8 @@ def light():
     LED roșu ca la pasul 1: D5 → R → LED → GND."""
     parts = resistor(3, 6, "b") + diode(6, 7, "d", "#ff5252", "#b71c1c", -11, -8)
     parts += resistor(5, 8, "h") + diode(9, 8, "g", "#f4f8fb", "#6b7b8c", 11, 15)
-    wires = [over(3, "5", 140, CD5), over(7, "GNDs", 170, CGND),
-             around(9, "f", "fg", 555, 490, "GND1", CGND),
-             around(5, "i", "ij", 540, 505, "A0", CA0)]
+    wires = [over(3, "5", 0, CD5), around(5, "i", "ij", RIGHT[1], "A0", CA0),
+             over(7, "GNDs", 2, CGND), around(9, "f", "fg", RIGHT[0], "GND1", CGND)]
     return parts, wires, ["5", "GNDs", "GND1", "A0"]
 
 
@@ -217,13 +229,14 @@ def svg(title, note, parts, wires, used):
     top = {(pts[0][0] - COL(1)) // 20 + 1 for pts, _ in wires if pts[0][1] == ROW["a"] and pts[1][1] < ROW["a"]}
     bottom = {u for u in used if isinstance(u, int)}
     body = board(used) + breadboard(top, bottom) + parts + [x for pts, color in wires for x in wire(pts, color)]
+    body += [x for n, (pts, color) in enumerate(wires, 1) for x in badges(pts, color, n)]  # literele, peste toate firele
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="Segoe UI, Helvetica, Arial, sans-serif">
 <style>.title{{font-size:20px;font-weight:700}}.sm{{font-size:13px}}.xs{{font-size:9px;fill:#777}}.w{{fill:#fff;font-size:10px}}
 .b{{font-weight:700;fill:#222}}.plus{{font-size:14px;font-weight:700;fill:#222}}
-.pin{{font-size:10px;fill:#cdbfe0}}.on{{fill:#ffeb3b;font-weight:700;font-size:11px}}</style>
+.pin{{font-size:10px;fill:#cdbfe0}}.on{{fill:#ffeb3b;font-weight:700;font-size:11px}}.num{{font-size:10px;font-weight:700}}</style>
 <rect width="{W}" height="{H}" fill="#ffffff"/>
 <text x="20" y="34" class="title" fill="#222">{title}</text>
-<text x="20" y="58" class="sm" fill="#555">{note}</text>
+<text x="20" y="58" class="sm" fill="#555">{note} Fiecare fir are o literă, scrisă la ambele capete.</text>
 {chr(10).join(body)}
 </svg>
 '''

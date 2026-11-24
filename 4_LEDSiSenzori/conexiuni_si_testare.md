@@ -8,6 +8,21 @@ Dacă ai parcurs pașii 1-3 fără să demontezi circuitul, montajul este deja c
 
 Pe breadboard, cele 5 găuri a-e din aceeași coloană numerotată sunt legate între ele (la fel f-j).
 
+Fiecare fir din schemă are o literă, scrisă la ambele capete:
+
+| Fir | Culoare    | Pe breadboard        | Pe placă                              | Ce leagă                     |
+| --- | ---------- | -------------------- | ------------------------------------- | ---------------------------- |
+| A   | portocaliu | coloana 7, rândul a  | pinul 5 (D5)                          | rezistorul LED-ului roșu     |
+| B   | mov        | coloana 9, rândul a  | pinul 6 (D6)                          | rezistorul LED-ului albastru |
+| C   | negru      | coloana 11, rândul a | GND din rândul de sus, lângă pinul 13 | catozii LED-urilor           |
+| D   | negru      | coloana 12, rândul h | al doilea GND din zona POWER          | pinul `-` al DHT11           |
+| E   | galben     | coloana 13, rândul i | pinul 2 (D2)                          | pinul `OUT` al DHT11         |
+| F   | roșu       | coloana 14, rândul f | primul 5V din zona POWER              | pinul `+` al DHT11           |
+| G   | roșu       | coloana 2, rândul g  | al doilea 5V din zona POWER           | pinul **VCC** al HC-SR04     |
+| H   | verde      | coloana 3, rândul h  | pinul 3 (D3)                          | pinul **Trig** al HC-SR04    |
+| I   | albastru   | coloana 4, rândul f  | pinul 4 (D4)                          | pinul **Echo** al HC-SR04    |
+| J   | negru      | coloana 5, rândul h  | primul GND din zona POWER             | pinul **GND** al HC-SR04     |
+
 ### 1. Alimentare
 
 Placa are doi pini 5V și trei pini GND. Pinii 5V și doi dintre pinii GND sunt în zona **POWER** a plăcii (în textul de mai jos îi numărăm de la stânga la dreapta, ca în schemă), iar al treilea GND e în rândul de sus, lângă pinul 13.
@@ -25,6 +40,8 @@ Placa are doi pini 5V și trei pini GND. Pinii 5V și doi dintre pinii GND sunt 
   - Catodul (piciorul mai scurt) → coloana comună de GND a LED-urilor.
 
 ### 3. Senzor DHT11
+
+Modulul se înfige cu corpul spre exteriorul breadboard-ului, cu pinii `-`, `OUT`, `+` de la stânga la dreapta (vezi pasul 2).
 
 - Pinul `+` → 5V pe Arduino (primul pin 5V).
 - Pinul `OUT` → Pin digital D2 pe Arduino.

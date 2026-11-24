@@ -22,6 +22,17 @@ Pe breadboard, cele 5 găuri a-e din aceeași coloană numerotată sunt legate �
    - Anodul (piciorul mai lung) → Rezistor din kit → Pin digital D5 pe Arduino.
    - Catodul (piciorul mai scurt) → GND pe Arduino.
 
+### Firele
+
+Fiecare fir din schemă are o literă, scrisă la ambele capete:
+
+| Fir | Culoare    | Pe breadboard       | Pe placă                              | Ce leagă                     |
+| --- | ---------- | ------------------- | ------------------------------------- | ---------------------------- |
+| A   | portocaliu | coloana 3, rândul a | pinul 5 (D5)                          | rezistorul LED-ului roșu     |
+| B   | turcoaz    | coloana 5, rândul i | pinul A0                              | rezistorul fotodiodei        |
+| C   | negru      | coloana 7, rândul a | GND din rândul de sus, lângă pinul 13 | catodul LED-ului             |
+| D   | negru      | coloana 9, rândul f | primul GND din zona POWER             | piciorul lung al fotodiodei  |
+
 ---
 
 ## Modalitate de rulare și testare
