@@ -26,7 +26,12 @@ MiniCore este un pachet de plăci care adaugă în Arduino IDE suportul pentru m
 
 1. Deschide Arduino IDE.
 2. Accesează **File > Preferences**.
-3. În câmpul **Additional Boards Manager URLs**, adaugă următorul URL: <https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json>
+3. În câmpul **Additional Boards Manager URLs**, adaugă următorul URL:
+
+   ```text
+   https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
+   ```
+
 4. Accesează **Tools > Board > Boards Manager...**.
 5. Așteaptă să se descarce indexurile platformei.
 6. Găsește MiniCore în listă și apasă pe **Install**.
