@@ -14,6 +14,17 @@ Schema păstrează montajul de la pașii 1-2. Modulul HC-SR04 este înfipt în b
 
 **Montajul de la pasul 2 rămâne pe breadboard:** placa are doi pini 5V și trei pini GND. DHT11 folosește deja un pin 5V și un pin GND, așa că leagă HC-SR04 la celălalt pin 5V și la un pin GND liber.
 
+### Firele
+
+Fiecare fir din schemă are o literă, scrisă la ambele capete. Firele A-F sunt cele de la pașii 1-2; la acest pas adaugi firele G-J:
+
+| Fir | Culoare  | Pe breadboard       | Pe placă                     | Ce leagă                 |
+| --- | -------- | ------------------- | ---------------------------- | ------------------------ |
+| G   | roșu     | coloana 2, rândul g | al doilea 5V din zona POWER  | pinul **VCC** al HC-SR04 |
+| H   | verde    | coloana 3, rândul h | pinul 3 (D3)                 | pinul **Trig**           |
+| I   | albastru | coloana 4, rândul f | pinul 4 (D4)                 | pinul **Echo**           |
+| J   | negru    | coloana 5, rândul h | primul GND din zona POWER    | pinul **GND** al HC-SR04 |
+
 ---
 
 ## Modalitate de rulare și testare
