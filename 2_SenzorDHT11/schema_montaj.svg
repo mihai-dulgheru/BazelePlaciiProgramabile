@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 620" width="1110" height="620" font-family="Segoe UI, Helvetica, Arial, sans-serif">
 <style>.title{font-size:20px;font-weight:700}.sm{font-size:13px}.xs{font-size:9px;fill:#777}.w{fill:#fff;font-size:10px}
 .b{font-weight:700;fill:#222}.plus{font-size:14px;font-weight:700;fill:#222}
-.pin{font-size:10px;fill:#cdbfe0}.on{fill:#ffeb3b;font-weight:700;font-size:11px}.num{font-size:10px;font-weight:700}</style>
+.pin{font-size:10px;fill:#cdbfe0}.on{fill:#ffeb3b;font-weight:700;font-size:11px}.num{font-size:10px;font-weight:700}.sign{font-size:16px;font-weight:700;fill:#fff}</style>
 <rect width="1110" height="620" fill="#ffffff"/>
 <text x="20" y="34" class="title" fill="#222">Pasul 2: se adaugă DHT11 (LED-urile de la pasul 1 rămân)</text>
 <text x="20" y="58" class="sm" fill="#555">Firele roșii = 5V, negre = GND. + marchează piciorul lung (anodul). Fiecare fir are o literă, scrisă la ambele capete.</text>
@@ -314,9 +314,9 @@
 <line x1="400" y1="450" x2="400" y2="490" stroke="#999" stroke-width="3"/>
 <line x1="420" y1="450" x2="420" y2="490" stroke="#999" stroke-width="3"/>
 <rect x="356" y="490" width="88" height="80" rx="5" fill="#1e5aa8" stroke="#0d3b75" stroke-width="2"/>
-<text x="384" y="496" transform="rotate(-90 384 496)" class="xs w" text-anchor="end">-</text>
+<text x="380" y="508" class="sign" text-anchor="middle">−</text>
 <text x="404" y="496" transform="rotate(-90 404 496)" class="xs w" text-anchor="end">OUT</text>
-<text x="424" y="496" transform="rotate(-90 424 496)" class="xs w" text-anchor="end">+</text>
+<text x="420" y="508" class="sign" text-anchor="middle">+</text>
 <text x="400.0" y="588" class="sm b" text-anchor="middle">DHT11</text>
 <rect x="370" y="522" width="60" height="42" rx="3" fill="#e8f1fb"/>
 <line x1="374" y1="530" x2="426" y2="530" stroke="#9bb8d8" stroke-width="2"/>

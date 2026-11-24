@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 620" width="1110" height="620" font-family="Segoe UI, Helvetica, Arial, sans-serif">
 <style>.title{font-size:20px;font-weight:700}.sm{font-size:13px}.xs{font-size:9px;fill:#777}.w{fill:#fff;font-size:10px}
 .b{font-weight:700;fill:#222}.plus{font-size:14px;font-weight:700;fill:#222}
-.pin{font-size:10px;fill:#cdbfe0}.on{fill:#ffeb3b;font-weight:700;font-size:11px}.num{font-size:10px;font-weight:700}</style>
+.pin{font-size:10px;fill:#cdbfe0}.on{fill:#ffeb3b;font-weight:700;font-size:11px}.num{font-size:10px;font-weight:700}.sign{font-size:16px;font-weight:700;fill:#fff}</style>
 <rect width="1110" height="620" fill="#ffffff"/>
 <text x="20" y="34" class="title" fill="#222">Pasul 1: LED-uri</text>
 <text x="20" y="58" class="sm" fill="#555">Firele negre = GND. + marchează piciorul lung (anodul). Fiecare fir are o literă, scrisă la ambele capete.</text>

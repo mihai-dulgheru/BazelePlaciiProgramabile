@@ -169,8 +169,12 @@ def module(cols, labels, body, name):
     bx, by, bw, bh = body
     s = [f'<line x1="{COL(c)}" y1="{y}" x2="{COL(c)}" y2="{by}" stroke="#999" stroke-width="3"/>' for c in cols]
     s.append(f'<rect x="{bx}" y="{by}" width="{bw}" height="{bh}" rx="5" fill="#1e5aa8" stroke="#0d3b75" stroke-width="2"/>')
-    s += [f'<text x="{COL(c) + 4}" y="{by + 6}" transform="rotate(-90 {COL(c) + 4} {by + 6})" class="xs w" '
-          f'text-anchor="end">{l}</text>' for c, l in zip(cols, labels)]
+    for c, l in zip(cols, labels):
+        if len(l) == 1:  # + / -: drept și mare; un „-” rotit ar arăta ca un apostrof
+            s.append(f'<text x="{COL(c)}" y="{by + 18}" class="sign" text-anchor="middle">{l.replace("-", "−")}</text>')
+        else:
+            s.append(f'<text x="{COL(c) + 4}" y="{by + 6}" transform="rotate(-90 {COL(c) + 4} {by + 6})" class="xs w" '
+                     f'text-anchor="end">{l}</text>')
     s.append(f'<text x="{bx + bw / 2}" y="{by + bh + 18}" class="sm b" text-anchor="middle">{name}</text>')
     return s
 
@@ -233,7 +237,7 @@ def svg(title, note, parts, wires, used):
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="Segoe UI, Helvetica, Arial, sans-serif">
 <style>.title{{font-size:20px;font-weight:700}}.sm{{font-size:13px}}.xs{{font-size:9px;fill:#777}}.w{{fill:#fff;font-size:10px}}
 .b{{font-weight:700;fill:#222}}.plus{{font-size:14px;font-weight:700;fill:#222}}
-.pin{{font-size:10px;fill:#cdbfe0}}.on{{fill:#ffeb3b;font-weight:700;font-size:11px}}.num{{font-size:10px;font-weight:700}}</style>
+.pin{{font-size:10px;fill:#cdbfe0}}.on{{fill:#ffeb3b;font-weight:700;font-size:11px}}.num{{font-size:10px;font-weight:700}}.sign{{font-size:16px;font-weight:700;fill:#fff}}</style>
 <rect width="{W}" height="{H}" fill="#ffffff"/>
 <text x="20" y="34" class="title" fill="#222">{title}</text>
 <text x="20" y="58" class="sm" fill="#555">{note} Fiecare fir are o literă, scrisă la ambele capete.</text>
